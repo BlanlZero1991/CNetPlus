@@ -250,12 +250,12 @@ ephone-dn 8
 ephone-dn 10
  number 6298
 Ephone 1
-  Mac-address cafe.face.baba
+  Mac-address ccd8.c1fb.1519
   type 8945
   button 1:8 2:7 3:6 4:5
   restart
 Ephone 2
-  Mac-address fafa.caca.baba
+  Mac-address 203a.0782.bd3b
   type 8945
   button 1:4 2:3 3:2 4:1
   restart  
@@ -328,10 +328,10 @@ dial-peer voice 61 Voip
  destination-pattern 61..
  session target ipv4:10.61.100.8
  codec g711ULAW
-dial-peer voice 62 Voip
- destination-pattern 62..
- session target ipv4:10.62.100.8
- codec g711ULAW
+!dial-peer voice 62 Voip
+ !destination-pattern 62..
+ !session target ipv4:10.62.100.8
+ !codec g711ULAW
 dial-peer voice 71 Voip
  destination-pattern 71..
  session target ipv4:10.71.100.8
@@ -348,6 +348,11 @@ dial-peer voice 82 Voip
  destination-pattern 82..
  session target ipv4:10.82.100.8
  codec g711ULAW
+dial-peer voice 91 Voip
+ destination-pattern 91..
+ session target ipv4:10.91.100.8
+ codec g711ULAW
+
 
 TASK3***TASK3***TASK3***
 TASK3***TASK3***TASK3***
@@ -603,25 +608,25 @@ conf t
 !
  voice register global
   mode cme
-  source-address 10._.100.8 port 5060
+  source-address 10.62.100.8 port 5060
   max-dn 12
   max-pool 12
   authenticate register
   create profile sync
  voice register dn 1
-   number ____
+   number 6271
    allow watch
-   name _______
+   name 6271
  voice register dn 2
    number ___
    allow watch
    name _______
 !
   voice register pool 1
-    id mac ____.____.____
+    id mac b8ea.98aa.da37
     number 1 dn 1
     dtmf-relay sip-notify
-    username ____ password ____
+    username 6271 password 6271
     codec g711ulaw
 !
   voice register pool 2
@@ -643,4 +648,5 @@ exit
           
 sip-ua
 sip-server ipv4:192.168.k.1
+
 
